@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sri Mahalakshmi Traders - Building Materials in Rasipuram</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Setup */
+    :root {
+      --primary: #ff4e50; /* Red-Orange */
+      --secondary: #f9d423; /* Yellow */
+      --accent: #4a90e2; /* Blue */
+      --dark: #2c3e50; /* Dark Blue-Grey */
+      --light: #f8f9fa; /* Off-white */
+      --gradient-start: #ee0979; /* Pink-Red for gradients */
+      --gradient-end: #ff6a00; /* Orange for gradients */
+      
+      /* Testimonial Backgrounds - inspired by homepage gradient but distinct */
+      --testimonial-bg-gradient1-start: #a18cd1; /* Light Purple */
+      --testimonial-bg-gradient1-end: #fbc2eb; /* Light Pink */
+      --testimonial-bg-gradient2-start: #84fab0; /* Light Green */
+      --testimonial-bg-gradient2-end: #8fd3f4; /* Light Blue */
+      --testimonial-bg-gradient3-start: #ffecd2; /* Light Peach */
+      --testimonial-bg-gradient3-end: #fcb69f; /* Light Coral */
+
+      /* New Section BG Gradients */
+      --about-bg-start: #c3a1e6; /* Soft Purple */
+      --about-bg-end: #a4cef4;   /* Soft Blue */
+
+      --products-bg-start: #f8c8dc; /* Pastel Pink */
+      --products-bg-end: #b6c3e2; /* Muted Blue */
+
+      --gallery-bg-start: #a3e8d9; /* Mint Green */
+      --gallery-bg-end: #ace0f9; /* Sky Blue */
+
+      --testimonials-bg-start: #ffe0b2; /* Light Orange */
+      --testimonials-bg-end: #ffc107; /* Amber */
+
+      --contact-bg-start: #d4e7d1; /* Light Green */
+      --contact-bg-end: #a6d9b4; /* Muted Green */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+  height: 100%;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  /* Layering multiple repeating linear gradients for a highly diverse color effect */
+  background: 
+    /* First layer: Rainbow gradient, slightly offset */
+    repeating-linear-gradient(45deg,
+      hsl(0, 100%, 50%) 0%,   /* Red */
+      hsl(60, 100%, 50%) 5%,  /* Yellow */
+      hsl(120, 100%, 50%) 10%, /* Green */
+      hsl(180, 100%, 50%) 15%, /* Cyan */
+      hsl(240, 100%, 50%) 20%, /* Blue */
+      hsl(300, 100%, 50%) 25%, /* Magenta */
+      hsl(0, 100%, 50%) 30%    /* Red (for seamless repetition) */
+    ),
+    /* Second layer: Reversed rainbow gradient, different angle and size */
+    repeating-linear-gradient(-45deg,
+      hsl(300, 100%, 50%) 0%,  /* Magenta */
+      hsl(240, 100%, 50%) 5%,  /* Blue */
+      hsl(180, 100%, 50%) 10%, /* Cyan */
+      hsl(120, 100%, 50%) 15%, /* Green */
+      hsl(60, 100%, 50%) 20%,  /* Yellow */
+      hsl(0, 100%, 50%) 25%,   /* Red (for seamless repetition) */
+      hsl(300, 100%, 50%) 30%
+    ),
+    /* Third layer: Complementary colors, vertical */
+    repeating-linear-gradient(90deg,
+      hsl(270, 80%, 60%) 0%, /* Purple */
+      hsl(30, 80%, 60%) 5%,  /* Orange */
+      hsl(270, 80%, 60%) 10%
+    );
+
+  /* Set background sizes differently for each layer to create complex movement */
+  background-size: 
+    800% 800%, /* Larger for a slower, broader movement */
+    700% 700%, /* Medium size */
+    600% 600%; /* Smaller for faster, more intricate movement */
+
+  /* Initial positions for each background layer */
+  background-position: 0% 0%, 50% 50%, 100% 100%; 
+
+  /* Animate the background positions to make colors swirl and interact */
+  animation: moveLayeredColors 30s linear infinite alternate; 
+
+  background-attachment: fixed; /* Ensures the background covers the entire viewport */
+  color: var(--dark); /* Your existing text color */
+  scroll-behavior: smooth;
+}
+
+
+/* Keyframes for animating the background positions of the layered gradients */
+@keyframes moveLayeredColors {
+  0% { 
+    background-position: 0% 0%, 50% 50%, 100% 100%; 
+  }
+  100% { 
+    background-position: 100% 100%, 0% 0%, 50% 50%; /* Shifts all layers */
+  }
+}
+    /* General Section Styling */
+    section {
+      padding: 80px 30px; /* Increased padding */
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative; /* For background animations */
+      overflow: hidden; /* Ensure background doesn't overflow */
+      z-index: 1; /* To ensure content is above pseudo-elements */
+      color: var(--dark); /* Default text color */
+      text-shadow: 0 1px 2px rgba(255,255,255,0.1); /* Subtle text shadow for readability */
+      /* opacity and transform handled by .fade-in-on-scroll now */
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 400% 400%; /* For gradient animation */
+      z-index: -1;
+      opacity: 0.9; /* Slightly transparent */
+      pointer-events: none; /* Allow interaction with content */
+    }
+
+    /* Individual Section Background Animations */
+    #about::before {
+        background: linear-gradient(135deg, var(--about-bg-start), var(--about-bg-end), var(--accent), var(--about-bg-start));
+        animation: gradientBG 10s ease infinite; /* Reduced from 20s */
+    }
+
+    #products::before {
+        background: linear-gradient(45deg, var(--products-bg-start), var(--products-bg-end), var(--primary), var(--products-bg-start));
+        animation: gradientBG 12s ease infinite reverse; /* Reduced from 25s */
+    }
+
+    #gallery::before {
+        background: linear-gradient(225deg, var(--gallery-bg-start), var(--gallery-bg-end), var(--secondary), var(--gallery-bg-start));
+        animation: gradientBG 15s ease infinite; /* Reduced from 30s */
+    }
+
+    #testimonials::before {
+        background: linear-gradient(315deg, var(--testimonials-bg-start), var(--testimonials-bg-end), var(--gradient-end), var(--testimonials-bg-start));
+        animation: gradientBG 11s ease infinite reverse; /* Reduced from 22s */
+    }
+
+    #contact::before {
+        background: linear-gradient(90deg, var(--contact-bg-start), var(--contact-bg-end), var(--accent), var(--contact-bg-start));
+        animation: gradientBG 14s ease infinite; /* Reduced from 28s */
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 8px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: var(--secondary);
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loader p {
+      color: white;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* Header Styles */
+    header {
+      text-align: center;
+      padding: 50px 20px 30px;
+      animation: fadeInDown 1.2s ease-out;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); /* Keep original header gradient */
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      letter-spacing: 1px;
+      animation: rainbow 8s linear infinite;
+      position: relative;
+    }
+
+    /* Sparkle effect for H1 */
+    header h1::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top left, rgba(255,255,255,0.7) 1%, transparent 10%),
+                    radial-gradient(circle at bottom right, rgba(255,255,255,0.7) 1%, transparent 10%);
+        mix-blend-mode: overlay;
+        animation: sparkle 5s infinite ease-in-out;
+        opacity: 0;
+    }
+
+    @keyframes sparkle {
+        0% { opacity: 0; transform: scale(0.8) translate(0, 0); }
+        20% { opacity: 0.5; transform: scale(1) translate(5px, 5px); }
+        40% { opacity: 0; transform: scale(0.8) translate(10px, 0); }
+        60% { opacity: 0.5; transform: scale(1) translate(0, 10px); }
+        80% { opacity: 0; transform: scale(0.8) translate(-5px, -5px); }
+        100% { opacity: 0; transform: scale(0.8) translate(0, 0); }
+    }
+
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    header p {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--light);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+    }
+    .cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 10px 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+    transform: skewX(-20deg);
+}
+
+
+.cta-button:hover {
+  transform: scale(1.07); /* Changed to simple zoom */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  /* Removed the background gradient change for a simpler zoom effect */
+}
+
+    /* Navigation */
+    nav {
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      width: 100%; /* Full width */
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      display: flex; /* Use flexbox for alignment */
+      justify-content: center; /* Center links for desktop */
+      align-items: center;
+      position: relative; /* For positioning the menu toggle */
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--secondary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none; /* Hidden by default for desktop */
+      cursor: pointer;
+      font-size: 1.8rem; /* Larger icon */
+      color: white;
+      padding: 10px;
+      position: absolute; /* Position relative to the nav */
+      top: 50%; /* Center vertically */
+      right: 20px; /* Align to right */
+      transform: translateY(-50%); /* Adjust for vertical centering */
+      z-index: 101; /* Ensure it's above other elements */
+      background: rgba(0,0,0,0.5);
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+        background: rgba(0,0,0,0.7);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      transition: all 0.4s ease;
+      padding-top: 60px;
+      overflow-y: auto;
+      box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    }
+
+    .mobile-menu.active {
+      left: 0;
+    }
+
+    .mobile-menu a {
+      display: block;
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255,255,255,0.1);
+      padding-left: 25px;
+    }
+
+    .mobile-menu a i {
+      margin-right: 10px;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .close-menu:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Scroll Animation Class */
+    .fade-in-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+    }
+    .fade-in-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section Styles */
+    section {
+        /* No opacity/transform here, handled by .fade-in-on-scroll */
+        border-radius: 20px;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--dark);
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-bottom: 10px; /* Space for underline */
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      bottom: 0; /* Align with bottom of text */
+      left: 25%;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 2px;
+      transform: scaleX(0); /* Start hidden */
+      transform-origin: center;
+      transition: transform 0.4s ease-out;
+    }
+
+    section h2:hover::after {
+      transform: scaleX(1); /* Expand on hover */
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+
+    .about-features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .feature-item {
+        background: rgba(255,255,255,0.9);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .feature-item i {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .feature-item:hover i {
+        color: var(--primary);
+    }
+
+    .feature-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: var(--dark);
+    }
+
+    .feature-item p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* Products Section - Updated to match Gallery hover animation */
+    .brands-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .brand-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      aspect-ratio: 16/9;
+    }
+
+    .brand-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .brand-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* CHANGE: Replicated gallery image zoom */
+    .brand-item:hover img {
+      transform: scale(1.15);
+    }
+
+    .brand-item .brand-overlay { /* Renamed from .overlay to .brand-overlay for specificity */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+      color: white;
+      padding: 20px;
+      opacity: 0;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.95);
+    }
+
+    .brand-item:hover .brand-overlay {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .brand-item h3 {
+      margin: 10px 0 5px;
+      color: white;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+
+    .brand-item:hover h3 {
+      transform: translateY(0);
+    }
+
+    .brand-item p {
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      transform: translateY(20px);
+      transition: transform 0.4s ease 0.1s;
+      opacity: 0;
+    }
+
+    .brand-item:hover p {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Add a subtle shine effect */
+    .brand-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transition: left 0.8s ease;
+    }
+
+    .brand-item:hover::after {
+      left: 150%;
+    }
+
+    /* Gallery Section */
+    .posters {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease-in-out; /* Smooth zoom transition */
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.15); /* More pronounced zoom */
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Contact Section */
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-info p {
+      margin: 10px 0; /* Reduced margin */
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column; /* Stack content vertically */
+      align-items: flex-start;
+    }
+
+    .contact-info p i {
+      margin-right: 15px;
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 5px; /* Space below icon */
+    }
+
+    .contact-info p strong {
+        display: block; /* Ensure strong tag takes its own line */
+        margin-bottom: 5px; /* Space between label and value */
+    }
+    .contact-info p span {
+        margin-left: 30px; /* Indent the value slightly */
+        font-weight: normal;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2), 0 0 10px rgba(74, 144, 226, 0.1); /* Added subtle glow */
+      outline: none;
+      transform: scale(1.01); /* Slight zoom on focus */
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      margin-top: 50px;
+    }
+
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      height: 200px; /* Ensure enough height for transitions */
+    }
+
+    .testimonial {
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 20px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      position: absolute;
+      width: calc(100% - 40px);
+      left: 0;
+      top: 0;
+      backface-visibility: hidden; /* Fix for flicker on some browsers */
+      transform: scale(0.9);
+      color: white; /* Text color for gradient backgrounds */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .testimonial:nth-child(1) { background: linear-gradient(45deg, var(--testimonial-bg-gradient1-start), var(--testimonial-bg-gradient1-end)); }
+    .testimonial:nth-child(2) { background: linear-gradient(45deg, var(--testimonial-bg-gradient2-start), var(--testimonial-bg-gradient2-end)); }
+    .testimonial:nth-child(3) { background: linear-gradient(45deg, var(--testimonial-bg-gradient3-start), var(--testimonial-bg-gradient3-end)); }
+
+
+    .testimonial.active {
+      opacity: 1;
+      position: relative;
+      transform: scale(1);
+    }
+
+    .testimonial .quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: inherit; /* Inherit color from testimonial background */
+    }
+
+    .testimonial .author {
+      font-weight: bold;
+      color: inherit; /* Inherit color */
+    }
+
+    .testimonial .role {
+      color: inherit; /* Inherit color */
+      font-size: 0.9rem;
+    }
+
+    .testimonial-nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .testimonial-nav button {
+      background: linear-gradient(to right, var(--accent), #6a11cb); /* Blue to Purple */
+      border: none;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      cursor: pointer;
+      color: white; /* White icons */
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .testimonial-nav button:hover {
+      background: linear-gradient(to left, var(--secondary), var(--primary)); /* Reverse gradient on hover */
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Feedback button specific styles */
+    .feedback-button {
+      position: absolute;
+      top: 30px; /* Adjust as needed */
+      right: 30px; /* Adjust as needed */
+      padding: 10px 20px;
+      background: linear-gradient(to right, var(--accent), var(--primary));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 10; /* Ensure it's above other content in the section */
+    }
+
+    .feedback-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Modal for feedback form */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1001; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0; /* Remove padding here to let iframe handle it */
+        border: 1px solid #888;
+        width: 90%; /* Responsive width */
+        max-width: 700px; /* Max width */
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden; /* Ensure iframe stays within bounds */
+    }
+
+    .modal-content iframe {
+        display: block; /* Remove extra space below iframe */
+        width: 100%;
+        height: 80vh; /* Adjust height as needed, responsive */
+        min-height: 500px; /* Minimum height for smaller screens */
+    }
+
+    .close-modal {
+        color: #aaa;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1002; /* Ensure close button is clickable */
+        background-color: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .close-modal:hover,
+    .close-modal:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Thank You Message Popup */
+    .thank-you-popup {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(45deg, var(--accent), #6a11cb); /* Blue to Purple */
+      color: white;
+      padding: 25px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+      z-index: 10000; /* Ensure it's on top of everything */
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out; /* Added filter to transition */
+      border: 3px solid var(--secondary); /* A nice border */
+      animation: bounceIn 0.6s ease-out; /* Entry animation */
+    }
+
+    .thank-you-popup.show {
+      display: block; /* Show when 'show' class is added */
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      filter: blur(0); /* Ensure no blur when shown */
+    }
+
+    /* New: Disintegration effect for the thank you popup */
+    .thank-you-popup.disintegrate {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7) rotate(10deg); /* Shrink, rotate slightly */
+        filter: blur(5px); /* Add blur for disintegration effect */
+        transition: opacity 1.5s ease-out, transform 1.5s ease-out, filter 1.5s ease-out; /* Slower transition for disintegration */
+    }
+
+    /* New: Styles for the individual snap particles */
+    .snap-particle {
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.8); /* White or light color for dust */
+        border-radius: 50%;
+        z-index: 10001; /* Above the popup */
+        pointer-events: none; /* Do not block clicks */
+        opacity: 1;
+        transition: all 1.5s ease-out; /* Animation for scattering */
+        /* Will be positioned and sized by JS */
+    }
+
+    /* Optional: Small animation for the heart icon */
+    .thank-you-popup p i {
+      margin-left: 10px;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: translate(-50%, -100%) scale(0.5); opacity: 0; }
+      60% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: rgba(0,0,0,0.8);
+      padding: 30px 20px;
+      color: white;
+      font-size: 1rem;
+      margin-top: 60px;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 99;
+      cursor: pointer;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:30px;
+        left:30px;
+        background-color:#25D366;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        font-size:30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index:100;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        animation: pulseWhatsApp 2s infinite; /* Added pulse animation */
+        transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+    }
+
+    @keyframes pulseWhatsApp {
+        0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Responsive Design */
+   /* Responsive Design */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+  
+  .brands-gallery, .posters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  .feedback-button {
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+  }
+  
+  nav a:not(.menu-toggle) {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  nav {
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 15px 0;
+    justify-content: center;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+  
+  .contact-info, .contact-form {
+    min-width: 100%;
+  }
+
+  /* Testimonials with same animation as desktop */
+  .testimonial-slider {
+    height: 300px; /* Adjusted height for mobile */
+  }
+
+  .testimonial {
+    padding: 25px;
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .testimonial .quote {
+    font-size: 1rem;
+  }
+
+  .testimonial-nav button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .about-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-item {
+    max-width: 90%;
+  }
+
+  .feedback-button {
+    position: static; /* Allows it to flow with content */
+    margin-top: 20px; /* Add some space if needed */
+    width: fit-content;
+    display: block; /* Make it a block element to center with margin auto */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .brands-gallery, .posters {
+    grid-template-columns: 1fr;
+  }
+  
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  /* Further Testimonials Optimization for Small Screens */
+  .testimonial-slider {
+    height: 280px; /* Slightly reduced height */
+  }
+
+  .testimonial {
+    padding: 20px;
+  }
+
+  .testimonial .quote {
+    font-size: 0.95rem;
+  }
+
+  .modal-content {
+      width: 95%;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <p>Loading Sri Mahalakshmi Traders...</p>
+  </div>
+
+  <header>
+    <h1>Sri Mahalakshmi Traders</h1>
+    <p>Your Trusted Partner for Quality Building Materials in Rasipuram</p>
+    <div class="header-buttons">
+      <a href="#contact" class="cta-button"><i class="fas fa-phone-alt"></i> Contact Us</a>
+      <a href="#products" class="cta-button"><i class="fas fa-box-open"></i> Our Products</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+    <a href="#products"><i class="fas fa-paint-roller"></i> Products</a>
+    <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+    <a href="#testimonials"><i class="fas fa-star"></i> Testimonials</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <div class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-menu" id="closeMenu">
+      <i class="fas fa-times"></i>
+    </div>
+    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+    <a href="#products"><i class="fas fa-paint-roller"></i> Products</a>
+    <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+    <a href="#testimonials"><i class="fas fa-star"></i> Testimonials</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
+
+  <div class="container">
+
+    <section id="about" class="fade-in-on-scroll">
+      <h2>About Us</h2>
+      <p>Sri Mahalakshmi Traders is Rasipuram's premier destination for high-quality building materials. With over 15 years of experience, we specialize in providing top-tier paints, cement, and steel from renowned brands like JSW Paints, Birla Opus, Chettinad Cement, Bharathi Cement, and JSW Steel. Our commitment to quality, competitive pricing, and timely delivery has made us the preferred choice for contractors, builders, and homeowners throughout the region.</p>
+      <p>At Sri Mahalakshmi Traders, we don't just sell products - we build relationships. Our knowledgeable staff provides expert advice to help you select the perfect materials for your project, ensuring durability, aesthetics, and value for money.</p>
+      
+      <div class="about-features">
+        <div class="feature-item fade-in-on-scroll">
+            <i class="fas fa-medal"></i>
+            <h3>Unmatched Quality</h3>
+            <p>We source only the best materials from leading manufacturers, ensuring superior performance and longevity for your projects.</p>
+        </div>
+        <div class="feature-item fade-in-on-scroll">
+            <i class="fas fa-truck-fast"></i>
+            <h3>Timely Delivery</h3>
+            <p>Our efficient logistics ensure your materials arrive on site, on time, every time, keeping your project on schedule.</p>
+        </div>
+        <div class="feature-item fade-in-on-scroll">
+            <i class="fas fa-handshake"></i>
+            <h3>Expert Guidance</h3>
+            <p>Our experienced team offers personalized advice, helping you choose the ideal products that fit your specific needs and budget.</p>
+        </div>
+        <div class="feature-item fade-in-on-scroll">
+            <i class="fas fa-tags"></i>
+            <h3>Competitive Pricing</h3>
+            <p>Get the best value for your money with our competitive pricing without compromising on quality.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="fade-in-on-scroll">
+      <h2>Our Premium Brands</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #444;">We partner with industry leaders to bring you a comprehensive range of building materials that stand the test of time. Explore our trusted brands:</p>
+      <div class="brands-gallery">
+        <div class="brand-item fade-in-on-scroll">
+          <img src="jswp.png" alt="JSW Paints">
+          <div class="brand-overlay">
+            <h3>JSW Paints</h3>
+            <p>Premium quality paints with superior finish and vibrant colors for every surface. Eco-friendly options available.</p>
+          </div>
+        </div>
+        <div class="brand-item fade-in-on-scroll">
+          <img src="bo.jpg" alt="Birla Opus">
+          <div class="brand-overlay">
+            <h3>Birla Opus</h3>
+            <p>Innovative paint solutions offering unmatched durability and a wide spectrum of shades for modern aesthetics.</p>
+          </div>
+        </div>
+        <div class="brand-item fade-in-on-scroll">
+          <img src="Chettinad Cement.png" alt="Chettinad Cement">
+          <div class="brand-overlay">
+            <h3>Chettinad Cement</h3>
+            <p>The foundation of strength and reliability. Ideal for all types of construction, ensuring long-lasting structures.</p>
+          </div>
+        </div>
+        <div class="brand-item fade-in-on-scroll">
+          <img src="b.png" alt="Bharathi Cement">
+          <div class="brand-overlay">
+            <h3>Bharathi Cement</h3>
+            <p>Quality that builds nations. Known for its consistency and high compressive strength, perfect for robust constructions.</p>
+          </div>
+        </div>
+        <div class="brand-item fade-in-on-scroll">
+          <img src="jsw.png" alt="JSW Steel">
+          <div class="brand-overlay">
+            <h3>JSW Steel</h3>
+            <p>Stronger foundations for a safer future. High-grade steel bars and structural components for ultimate stability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="fade-in-on-scroll">
+      <h2>Our Gallery</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #444;">Witness the quality and scale of our operations. From our well-stocked yard to efficient deliveries, we ensure excellence at every step.</p>
+      <div class="posters">
+        <div class="gallery-item fade-in-on-scroll">
+          <img src="https://via.placeholder.com/600x400/add8e6/333333?text=Store+Front" alt="Our Store">
+          <div class="overlay">
+            <h3>Our Vibrant Store Front</h3>
+            <p>Welcome to our easily accessible store, designed for your convenience.</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in-on-scroll">
+          <img src="https://via.placeholder.com/600x400/90ee90/333333?text=Product+Display" alt="Product Display">
+          <div class="overlay">
+            <h3>Organized Product Display</h3>
+            <p>Browse our extensive range of materials, neatly organized for easy selection.</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in-on-scroll">
+          <img src="https://via.placeholder.com/600x400/ffb6c1/333333?text=Delivery+Vehicle" alt="Delivery Vehicle">
+          <div class="overlay">
+            <h3>Our Modern Delivery Fleet</h3>
+            <p>Ensuring swift and secure delivery directly to your construction site.</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in-on-scroll">
+          <img src="https://via.placeholder.com/600x400/ffebcd/333333?text=Customer+Interaction" alt="Customer Service">
+          <div class="overlay">
+            <h3>Dedicated Customer Service</h3>
+            <p>Our team is always ready to assist you with expert advice and friendly service.</p>
+          </div>
+        </div>
+        <div class="gallery-item fade-in-on-scroll">
+            <img src="https://via.placeholder.com/600x400/d8bfd8/333333?text=Warehouse+View" alt="Warehouse View">
+            <div class="overlay">
+              <h3>Spacious Warehouse</h3>
+              <p>A peek into our well-maintained warehouse, storing ample stock for all demands.</p>
+            </div>
+        </div>
+        <div class="gallery-item fade-in-on-scroll">
+            <img src="https://via.placeholder.com/600x400/b0e0e6/333333?text=Material+Loading" alt="Material Loading">
+            <div class="overlay">
+              <h3>Efficient Material Loading</h3>
+              <p>Our team ensures quick and safe loading of your ordered materials.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="fade-in-on-scroll">
+      <h2>What Our Customers Say</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #444;">Hear directly from our satisfied clients about their experience with Sri Mahalakshmi Traders:</p>
+      <button class="feedback-button" id="feedbackButton">Your Feedback <i class="fas fa-comment-dots"></i></button>
+      <div class="testimonials">
+        <div class="testimonial-slider">
+          <div class="testimonial active">
+            <div class="quote">"Sri Mahalakshmi Traders has been our go-to supplier for all construction materials. Their quality and service are unmatched in Rasipuram. Highly recommend them for any project, big or small!"</div>
+            <div class="author">Mr. Senthil Kumar</div>
+            <div class="role">Contractor, SK Builders</div>
+          </div>
+          <div class="testimonial">
+            <div class="quote">"The paints we purchased for our home have maintained their color and finish beautifully even after 3 years. The selection was vast, and the staff helped us pick the perfect shades. Excellent value!"</div>
+            <div class="author">Mrs. Geetha Ramesh</div>
+            <div class="role">Homeowner</div>
+          </div>
+          <div class="testimonial">
+            <div class="quote">"Their staff helped us select the perfect materials within our budget, offering insightful advice. The delivery was prompt, and the quality of cement and steel was excellent. A truly reliable partner."</div>
+            <div class="author">Mr. Arun Prakash</div>
+            <div class="role">Architect</div>
+          </div>
+          <div class="testimonial">
+              <div class="quote">"From foundation to finish, Sri Mahalakshmi Traders provided everything we needed. Their commitment to customer satisfaction is truly commendable. They made our construction process smooth."</div>
+              <div class="author">Mr. Karthik Shanmugam</div>
+              <div class="role">Real Estate Developer</div>
+          </div>
+          <div class="testimonial">
+              <div class="quote">"Finding reliable material suppliers can be tough, but Sri Mahalakshmi Traders exceeded our expectations. Consistent quality and fantastic support. Our preferred supplier now!"</div>
+              <div class="author">Ms. Priya Devi</div>
+              <div class="role">Interior Designer</div>
+          </div>
+        </div>
+        <div class="testimonial-nav">
+          <button class="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+          <button class="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in-on-scroll">
+      <h2>Contact Us</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #444;">Have a question or need a quote? Reach out to us through any of the following methods, or fill out the form below. We look forward to assisting you!</p>
+      <div class="contact">
+        <div class="contact-info fade-in-on-scroll">
+          <p>
+            <i class="fas fa-user"></i> 
+            <strong>Name:</strong> 
+            <span>P. Rajkumar</span>
+          </p>
+          <p>
+            <i class="fas fa-phone-alt"></i> 
+            <strong>Phone:</strong> 
+            <span>+91 96776 16371</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 
+            <strong>Address:</strong><br>
+            <span>S3, 3/282-12, 'Sai Complex',<br>
+            Senthamangalam Highway,<br>
+            Opp. Rasi International School,<br>
+            Thottiampatty, Chandrasekarapuram P.O,<br>
+            Rasipuram - 637401</span>
+          </p>
+          <p>
+            <i class="fas fa-clock"></i> 
+            <strong>Business Hours:</strong><br>
+            <span>Monday - Saturday: 8:30 AM - 8:30 PM<br>
+            Sunday: 10:00 AM - 2:00 PM</span>
+          </p>
+          <p>
+              <i class="fas fa-envelope"></i>
+              <strong>Email:</strong>
+              <span>rajkumarrasipuram20@gmail.com</span>
+          </p>
+          <p>
+              <i class="fas fa-route"></i>
+              <strong>Get Directions:</strong>
+              <span><a href="https://maps.app.goo.gl/YOUR_Maps_LINK_HERE" target="_blank" class="cta-button" style="padding: 8px 15px; font-size: 0.9rem;">View on Map <i class="fas fa-external-link-alt"></i></a></span>
+          </p>
+        </div>
+        <div class="contact-form fade-in-on-scroll">
+          <form id="enquiryForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email (Optional)</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="message">Your Enquiry</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Enquiry <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1AwiE68yKk/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/919677616371" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/t_h_r_o_t_t_z_y?igsh=ZnBsOTZha2V4Y2Zq&utm_source=qr"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:rajkumarrasipuram20@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>© 2025 Sri Mahalakshmi Traders, Rasipuram. All rights reserved.</p>
+    <p>Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for our valued customers</p>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <a href="https://wa.me/919677616371" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <div id="feedbackModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">×</span>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScltxwFSo1wcxe4YZLL5vQd58-V3eihWGhGsLa1-PdLrScp9g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+
+  <div id="thankYouMessage" class="thank-you-popup">
+    <p>Thank you for your review! <i class="fas fa-heart"></i></p>
+  </div>
+
+  <script>
+    // Loading animation
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loader').classList.add('hidden');
+      }, 1500); // Adjust time as needed
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlay = document.getElementById('overlay');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Testimonial slider
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevBtn = document.querySelector('.prev-testimonial');
+    const nextBtn = document.querySelector('.next-testimonial');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+      testimonials.forEach(testimonial => {
+        testimonial.classList.remove('active');
+      });
+      testimonials[index].classList.add('active');
+      currentIndex = index;
+
+      // Adjust slider height dynamically based on active testimonial
+      const activeTestimonialHeight = testimonials[index].offsetHeight;
+      document.querySelector('.testimonial-slider').style.height = `${activeTestimonialHeight + 40}px`; // Add some padding
+    }
+
+    // Initial height adjustment
+    window.addEventListener('load', () => {
+      if (testimonials.length > 0) {
+        showTestimonial(0); // Show the first testimonial and set height
+      }
+    });
+
+
+    prevBtn.addEventListener('click', () => {
+      let newIndex = currentIndex - 1;
+      if (newIndex < 0) newIndex = testimonials.length - 1;
+      showTestimonial(newIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      let newIndex = currentIndex + 1;
+      if (newIndex >= testimonials.length) newIndex = 0;
+      showTestimonial(newIndex);
+    });
+
+    // Auto-rotate testimonials
+    setInterval(() => {
+      let newIndex = currentIndex + 1;
+      if (newIndex >= testimonials.length) newIndex = 0;
+      showTestimonial(newIndex);
+    }, 5000);
+
+    // Form submission to WhatsApp
+    const enquiryForm = document.getElementById('enquiryForm');
+    enquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      const whatsappMessage = `New Enquiry from Sri Mahalakshmi Traders Website:%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email || 'Not provided'}%0AMessage: ${message}`;
+      
+      window.open(`https://wa.me/919677616371?text=${whatsappMessage}`, '_blank');
+      
+      enquiryForm.reset();
+    });
+
+    // Scroll animations for various elements
+    function animateOnScroll() {
+      const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
+      
+      elementsToAnimate.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight * 0.85) { // Adjust visibility threshold
+          element.classList.add('is-visible');
+        } else {
+            // Optional: remove is-visible class when out of view, if you want re-animation on scroll up/down
+            // element.classList.remove('is-visible'); 
+        }
+      });
+    }
+
+    // Run on load and scroll
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Initial page load animations for top elements (header, nav)
+    document.addEventListener('DOMContentLoaded', function() {
+      const initialElements = document.querySelectorAll('header, nav'); /* Only target elements that are immediately visible */
+      
+      initialElements.forEach((element, index) => {
+        element.style.opacity = '0'; // Ensure it's hidden before animation
+        setTimeout(() => {
+          element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }, 100 * index); // Staggered fade-in
+      });
+
+      // Trigger scroll animations for elements initially in view
+      animateOnScroll();
+    });
+
+    // Animate brand cards on hover (already smooth due to updated CSS)
+    const brandCards = document.querySelectorAll('.brand-item');
+    brandCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.animation = 'pulse 0.5s ease';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.animation = '';
+      });
+    });
+
+    // Feedback Modal functionality
+    const feedbackButton = document.getElementById('feedbackButton');
+    const feedbackModal = document.getElementById('feedbackModal');
+    const closeModal = document.querySelector('.close-modal');
+    const thankYouMessage = document.getElementById('thankYouMessage'); // Get the thank you message element
+
+    feedbackButton.addEventListener('click', () => {
+      feedbackModal.style.display = 'flex'; // Use flex to center the modal content
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    });
+
+    // Function to handle the "Thanos snap" disintegration
+    function disintegrateElement(element) {
+        element.classList.add('disintegrate'); // Apply disintegration style
+
+        const rect = element.getBoundingClientRect();
+        const particleCount = 30; // Number of dust particles
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('snap-particle');
+            document.body.appendChild(particle);
+
+            // Initial position around the center of the element
+            const initialX = rect.left + rect.width / 2 + (Math.random() - 0.5) * rect.width * 0.6;
+            const initialY = rect.top + rect.height / 2 + (Math.random() - 0.5) * rect.height * 0.6;
+            
+            particle.style.left = `${initialX}px`;
+            particle.style.top = `${initialY}px`;
+            particle.style.width = `${Math.random() * 5 + 3}px`; // Random size 3-8px
+            particle.style.height = particle.style.width;
+
+            // Random target position for scattering
+            const targetX = initialX + (Math.random() - 0.5) * 300; // Scatter up to 300px
+            const targetY = initialY + (Math.random() - 0.5) * 300; // Scatter up to 300px
+            const scale = Math.random() * 0.5 + 0.1; // Shrink to 10-60%
+            const rotate = Math.random() * 720; // Rotate randomly
+
+            // Use requestAnimationFrame to ensure CSS transition takes effect
+            requestAnimationFrame(() => {
+                particle.style.transform = `translate(${targetX - initialX}px, ${targetY - initialY}px) scale(${scale}) rotate(${rotate}deg)`;
+                particle.style.opacity = '0'; // Fade out
+            });
+
+            // Remove particle from DOM after its animation completes
+            particle.addEventListener('transitionend', () => {
+                particle.remove();
+            });
+        }
+
+        // Hide the main element completely after the disintegration animation
+        setTimeout(() => {
+            element.style.display = 'none';
+            element.classList.remove('disintegrate'); // Clean up class
+            element.classList.remove('show'); // Ensure 'show' is removed
+            element.style.opacity = '0'; // Reset opacity for next appearance
+            element.style.transform = 'translate(-50%, -50%)'; // Reset transform
+            element.style.filter = 'blur(0)'; // Reset filter
+        }, 1500); // Match this with the transition duration for .disintegrate and .snap-particle
+    }
+
+    closeModal.addEventListener('click', () => {
+      feedbackModal.style.display = 'none';
+      document.body.style.overflow = ''; // Restore scrolling
+
+      // Show the thank you message
+      thankYouMessage.classList.add('show');
+
+      // Trigger the disintegration after 4 seconds
+      setTimeout(() => {
+        disintegrateElement(thankYouMessage);
+      }, 4000); // 4 seconds before the snap starts
+    });
+
+    // Close the modal if clicked outside the content
+    window.addEventListener('click', (event) => {
+      if (event.target == feedbackModal) {
+        feedbackModal.style.display = 'none';
+        document.body.style.overflow = '';
+
+        // Show the thank you message even if closed by clicking outside
+        thankYouMessage.classList.add('show');
+        setTimeout(() => {
+          disintegrateElement(thankYouMessage);
+        }, 4000); // 4 seconds before the snap starts
+      }
+    });
+
+  </script>
+</body>
+</html>
